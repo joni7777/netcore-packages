@@ -1,5 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bp.RouterAliases", "Bp.RouterAliases\Bp.RouterAliases.csproj", "{9138AA44-831A-45E6-BE70-0868E7057D02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bp.Config", "Bp.Config\Bp.Config.csproj", "{A460C55F-7B3F-4033-A1BF-E979BD45AF50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bp.HealthChecks", "Bp.HealthChecks\Bp.HealthChecks.csproj", "{8B0E2FA1-41C1-4F2F-ADA9-A83EFA7614B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bp.Common", "Bp.Common\Bp.Common.csproj", "{1FC3D9A3-C787-4FF0-B89D-44300FB4055E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bp.Logging", "Bp.Logging\Bp.Logging.csproj", "{D73A92AF-8325-4269-9E85-7D18A56A5156}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bp.ApiRunner", "Bp.ApiRunner\Bp.ApiRunner.csproj", "{3DCE7B7E-B32B-4111-8A53-B4236FC2B690}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bp.EndPointer", "Bp.EndPointer\Bp.EndPointer.csproj", "{A344A164-26FB-46BD-9F5C-2F18A0E63E56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bp.ExtendConfigureServices", "Bp.ExtendConfigureServices\Bp.ExtendConfigureServices.csproj", "{F87304BF-A74B-4487-A087-D01B3B6EA44B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
