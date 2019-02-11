@@ -13,8 +13,6 @@ function Build-Packages {
 }
 
 function Publish-Packages {
-    Build-Packages
-    
     $packages = Get-ChildItem "./artifacts/*.nupkg"
     
     foreach($package in $packages) {
