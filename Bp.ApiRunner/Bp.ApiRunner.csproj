@@ -6,7 +6,6 @@
         <Version>1.0.0</Version>
         <Authors>Jonathan Erel</Authors>
         <Description>Init the Kestrel server, and run the startup with all of the packages commonly used in the BpSeed</Description>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <RepositoryUrl>https://github.com/joni7777/netcore-packages.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>

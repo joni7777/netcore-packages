@@ -6,7 +6,6 @@
         <Version>1.0.0</Version>
         <Authors>Jonathan Erel</Authors>
         <Description>Provide health checks for the application</Description>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <RepositoryUrl>https://github.com/joni7777/netcore-packages.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>

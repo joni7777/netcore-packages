@@ -11,7 +11,6 @@ In the new project `.csproj` file make sure the following props exists
     <Version>{{VERSION}}</Version>
     <Authors>{{AUTHOR}}</Authors>
     <Description>{{DESCRIPTION}}</Description>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/joni7777/netcore-packages.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 </PropertyGroup>
