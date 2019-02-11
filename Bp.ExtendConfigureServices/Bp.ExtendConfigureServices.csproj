@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <PackageId>Bp.ExtendConfigureServices</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>Jonathan Erel</Authors>
         <Description>Allow extending configure services of the ApiRunner</Description>
         <RepositoryUrl>https://github.com/joni7777/netcore-packages.git</RepositoryUrl>
