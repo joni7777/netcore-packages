@@ -23,10 +23,9 @@ function Publish-Packages {
 }
 
 Write-Host "Starting to build packages"
-# Build-Packages
+Build-Packages
 Write-Host "Finished building packages"
-Write-Host $nugetApiSource
-Write-Host $nugetApiKey
+
 if(!$nugetApiKey -Or !$nugetApiSource) {
     Write-Host "Not uploading packages, nugetApiKey or nugetApiSource is null and both must be provided to upload the packages"
 } else {
