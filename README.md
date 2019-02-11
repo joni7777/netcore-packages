@@ -3,6 +3,19 @@ Repository to keep all BlackPearl C# Nuget packages.
 
 ## How to add new packages
 Create new project (keep the `Bp.` namespace at the of the project)
+In the new project `.csproj` file make sure the following props exists
+```xml
+<PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PackageId>{{PACKAGE_NAME}}</PackageId>
+    <Version>{{VERSION}}</Version>
+    <Authors>{{AUTHOR}}</Authors>
+    <Description>{{DESCRIPTION}}</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RepositoryUrl>https://github.com/joni7777/netcore-packages.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+</PropertyGroup>
+```
 
 ### How to publish packages
 By default the package version will be 1.0.0, to change it add to the package `.csproj` file:
@@ -15,6 +28,9 @@ By default the package version will be 1.0.0, to change it add to the package `.
 ```
 Run using PowerShell the file `build-and-publish-packages.ps1`
 and it will be uploaded to the Nuget repo
+Don't forget to add to the script arguments the nuget api key and nuget api source.
+Example: `pwsh build-and-publish-packages.ps1 -nugetApiKey {{NUGET_API_KEY}} -nugetApiSource https://api.nuget.org/v3/index.json
+`
 
 ## Packages
 

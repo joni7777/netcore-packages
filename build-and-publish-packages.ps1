@@ -1,3 +1,7 @@
+param(
+    [parameter(Mandatory=$true, HelpMessage="Enter Nuget API key and source values")]
+    [String]$nugetApiKey, [String]$nugetApiSource)
+
 function Build-Packages {
     $projects = Get-ChildItem "*.csproj" -Recurse
     $sln = Get-Item *.sln
@@ -14,8 +18,19 @@ function Publish-Packages {
     $packages = Get-ChildItem "./artifacts/*.nupkg"
     
     foreach($package in $packages) {
-        dotnet nuget push $package.FullName
+        dotnet nuget push $package.FullName -s $nugetApiSource -k $nugetApiKey
     }
 }
 
-Publish-Packages
+Write-Host "Starting to build packages"
+# Build-Packages
+Write-Host "Finished building packages"
+Write-Host $nugetApiSource
+Write-Host $nugetApiKey
+if(!$nugetApiKey -Or !$nugetApiSource) {
+    Write-Host "Not uploading packages, nugetApiKey or nugetApiSource is null and both must be provided to upload the packages"
+} else {
+    Write-Host "Starting to publish packages"
+    Publish-Packages
+    Write-Host "Finished publish packages"
+}
