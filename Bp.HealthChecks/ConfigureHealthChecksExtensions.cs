@@ -26,8 +26,8 @@ namespace Bp.HealthChecks
                 healthChecks.AddMongoDb(mongoConfig, name: "mongodb-health", tags: new[] {HealthCheckTag.DATA});
             }
 
-            // If server have https, the http endpoint will redirect to it and the health check will fail
-            if (configuration["Kestrel:EndPoints:Https:Url"] == null)
+            // If server have https, the http endpoint will redirect to the https it and the health check will fail of the redirect
+            if (configuration["Kestrel:EndPoints:Https:Url"] == null && configuration["Kestrel:EndPoints:Http:Url"] != null)
             {
                 healthChecks.AddUrlGroup(
                     new Uri(

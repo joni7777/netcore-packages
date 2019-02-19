@@ -30,6 +30,12 @@ namespace Bp.EndPointer
 
 		public async Task Register(string baseUrl)
 		{
+			if (baseUrl == null)
+			{
+				_logger.LogWarning("Service kestrel urls are empty, cant register to the endpointer");
+				return;
+			}
+			
 			var ctx = new CancellationTokenSource();
 			ctx.CancelAfter(3000);
 
@@ -43,7 +49,7 @@ namespace Bp.EndPointer
 
 				if (!respone.IsSuccessStatusCode)
 				{
-					_logger?.LogWarning("Failed to register to the endpointer", respone.ReasonPhrase);
+					_logger?.LogWarning($"Failed to register to the endpointer because of: {respone.ReasonPhrase}", respone.ReasonPhrase);
 				}
 				else
 				{

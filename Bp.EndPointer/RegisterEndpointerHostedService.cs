@@ -19,18 +19,13 @@ namespace Bp.EndPointer
 			var serviceInfo = config.GetSection("Service").Get<ServiceInfo>();
 			var endPointerInfo = config.GetSection("EndPointer").Get<EndPointerInfo>();
 			_endPointer = new EndPointer(endPointerInfo.Url, hostingEnvironment.EnvironmentName, serviceInfo, logger);
-			_serverAddress = ParseServerAddress(config.GetSection("Kestrel:Endpoints:Http:Url").Value ??
-			                                    config.GetSection("Kestrel:Endpoints:Https:Url").Value);
+			_serverAddress = Environment.GetEnvironmentVariable("RUNNING_SERVICE_URL") ?? ParseServerAddress(config.GetSection("Kestrel:Endpoints:Http:Url").Value ??
+			                                    config.GetSection("Kestrel:Endpoints:Https:Url").Value ?? "");
 		}
 
 		public Task StartAsync(CancellationToken cancellationToken)
 		{
-			return RegisterToEndPointer();
-		}
-
-		private async Task RegisterToEndPointer()
-		{
-			await _endPointer.Register(_serverAddress);
+			return _endPointer.Register(_serverAddress);
 		}
 
 		/// <summary>
@@ -42,9 +37,9 @@ namespace Bp.EndPointer
 		private string ParseServerAddress(string address)
 		{
 			return address
-				.Replace("[::]", Environment.UserDomainName)
-				.Replace("localhost", Environment.UserDomainName)
-				.Replace("*", Environment.UserDomainName);
+				.Replace("[::]", Environment.MachineName)
+				.Replace("localhost", Environment.MachineName)
+				.Replace("*", Environment.MachineName);
 		}
 
 		public Task StopAsync(CancellationToken cancellationToken)

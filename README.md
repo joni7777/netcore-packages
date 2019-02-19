@@ -62,16 +62,16 @@ Register the service in the EndPointer using configuration
 }
 ```
 The service will be registered by the service name from the config service info section
-and with the address of the Kestrel config endpoints and the computer hostname 
+and with the address of the RUNNING_SERVICE_URL environment variable OR Kestrel config endpoints and the computer hostname 
 
 ### Bp.ExtendConfigureServices
-Allow extending configure services of the ApiRunner
+Allow extending configure services of the ApiRunner startup
 Using reflection:
 1. loads the EntryAssembly
 2. looks for Class with the name: `BpConfigureServices`
-3. look for A static public method: `ExtendConfigureServices`
-4. invoke the method from before with the services collection
-If the class or the method are null it just continue
+3. look for A static public method: `ExtendConfigureServices` AND OR `ExtendConfigure` 
+4. invoke the method(s) from before with the default startup arguments (`IServiceCollection`, `IConfiguration` for `ExtendConfigureServices` and `IApplicationBuilder`, `IHostingEnvironment`, `IConfiguration` for `ExtendConfigure`) 
+If the class or one of the methods are null it just skip the null class or method
 
 ### Bp.HealthChecks
 Add health checks for the application

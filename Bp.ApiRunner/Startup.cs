@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Threading.Tasks;
 using AutoMapper;
 using Bp.Common;
 using Bp.EndPointer;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -49,7 +51,8 @@ namespace Bp.ApiRunner
             services.ConfigureBpHealthChecksServices(Configuration);
             services.AddHostedService<RegisterEndpointerHostedService>();
             services.AddAutoMapper();
-            services.ExtendConfigureServices();
+            services.ExtendConfigureServices(Configuration);
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,11 +73,18 @@ namespace Bp.ApiRunner
             app.UseBpHealthChecks();
             app.UseMvc();
             app.UseSwagger();
+            // On request to the default "/" route, redirect to the swagger page
+            app.UseRouter(build => build.MapGet("", context =>
+            {
+                context.Response.Redirect("/swagger/index.html", permanent: false);
+                return Task.FromResult(0);
+            }));
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint(_service.SwaggerUrl, $"{_service.Name} V{_service.Version}");
                 c.DisplayOperationId();
             });
+            app.UseExtendConfigure(env, Configuration);
         }
     }
 }
