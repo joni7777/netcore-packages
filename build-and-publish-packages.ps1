@@ -34,6 +34,6 @@ if(!$nugetApiKey -Or !$nugetApiSource) {
     Write-Host "Not uploading packages, nugetApiKey or nugetApiSource is null and both must be provided to upload the packages"
 } else {
     Write-Host "Starting to publish packages"
-#    Publish-Packages
+    Publish-Packages
     Write-Host "Finished publish packages"
 }
