@@ -130,3 +130,7 @@ Splunk by default will get only logs from Debug level
 
 ## Bp.RouterAliases
 Add Router aliases instead of controller from NetCore
+
+## Bp.Cache
+Provide singleton cache service for the application
+The service expects to have cache interval config in the config location `Data:CacheInterval`
