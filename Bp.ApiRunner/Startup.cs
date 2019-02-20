@@ -45,6 +45,7 @@ namespace Bp.ApiRunner
                 c.SwaggerDoc(_service.Version, new OpenApiInfo {Title = _service.Name, Version = _service.Version});
                 c.DescribeAllEnumsAsStrings();
                 c.DescribeStringEnumsInCamelCase();
+                c.EnableAnnotations();
             });
             services.AddCors(options => options.AddPolicy("AllowAll",
                 policyBuilder => policyBuilder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
