@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <PackageId>Bp.ApiRunner</PackageId>
-        <Version>1.0.3</Version>
+        <Version>1.0.4</Version>
         <Authors>Jonathan Erel</Authors>
         <Description>Init the Kestrel server, and run the startup with all of the packages commonly used in the BpSeed</Description>
         <RepositoryUrl>https://github.com/joni7777/netcore-packages.git</RepositoryUrl>
