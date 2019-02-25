@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <PackageId>Bp.EndPointer</PackageId>
-        <Version>1.0.2</Version>
+        <Version>1.1.0</Version>
         <Authors>Jonathan Erel</Authors>
         <Description>Register the service in the EndPointer</Description>
         <RepositoryUrl>https://github.com/joni7777/netcore-packages.git</RepositoryUrl>

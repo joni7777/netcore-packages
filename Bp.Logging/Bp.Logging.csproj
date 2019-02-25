@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <PackageId>Bp.Logging</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.1.0</Version>
         <Authors>Jonathan Erel</Authors>
         <Description>Provide default logger sinks for mattermost and splunk and console</Description>
         <RepositoryUrl>https://github.com/joni7777/netcore-packages.git</RepositoryUrl>

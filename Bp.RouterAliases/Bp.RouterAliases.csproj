@@ -4,9 +4,9 @@
         <Description>Provides router aliases instead of controller from NetCore</Description>
         <RepositoryUrl>https://github.com/joni7777/netcore-packages.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <PackageId>Bp.RouterAliases</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.1.0</Version>
         <Authors>Jonathan Erel</Authors>
     </PropertyGroup>
 
