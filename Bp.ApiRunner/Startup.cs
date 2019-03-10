@@ -73,7 +73,7 @@ namespace Bp.ApiRunner
             app.UseEnrichWithRequestParams();
             app.UseBpHealthChecks();
             app.UseMvc();
-            app.UseSwagger();
+            app.UseSwagger(c => c.RouteTemplate = $"api/{c.RouteTemplate}");
             // On request to the default "/" route, redirect to the swagger page
             app.UseRouter(build => build.MapGet("", context =>
             {

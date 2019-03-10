@@ -4,7 +4,7 @@ namespace Bp.Common
     {
         public string Name { get; set; }
         public string Version { get; set; }
-        public string SwaggerUrl => $"/swagger/{Version}/swagger.json";
+        public string SwaggerUrl => $"/api/swagger/{Version}/swagger.json";
 
         public ServiceInfo()
         {

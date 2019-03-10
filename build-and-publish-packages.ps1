@@ -13,6 +13,10 @@ function Build-Packages {
     $sln = Get-Item *.sln
     dotnet build $sln.FullName -c Release
     
+    if($LASTEXITCODE -eq 1) {
+        Write-Host "Failed to build solution" -ForegroundColor Red
+    }
+    
     foreach($project in $projects) {
         dotnet pack $project.FullName --no-build -c Release -o ../artifacts
     }
