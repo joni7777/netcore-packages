@@ -17,7 +17,7 @@ namespace Bp.Config
             hostingContext.HostingEnvironment.EnvironmentName = environmentName;
             
             config
-                .SetBasePath($"{Directory.GetCurrentDirectory()}/Config/")
+                .SetBasePath($"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}Config{Path.DirectorySeparatorChar}")
                 .AddJsonFile($"{CONFIG_FILE_BASE_NAME}.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"{CONFIG_FILE_BASE_NAME}.{environmentName}.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"{CONFIG_FILE_BASE_NAME}.{environmentName}.Local.json", optional: true,
