@@ -30,7 +30,7 @@ namespace Bp.Logging.Sinks.Splunk
         private AuthenticationHeaderValue CreateBasicAuth(BpSplunkInfo splunkInfo)
         {
             string usernamePassword = $"{splunkInfo.Username}:{splunkInfo.Password}";
-            byte[] encodedBytes = Encoding.Unicode.GetBytes(usernamePassword);
+            byte[] encodedBytes = Encoding.UTF8.GetBytes(usernamePassword);
 
             return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(encodedBytes));
         }
