@@ -29,9 +29,10 @@ namespace Bp.HealthChecks
             // If server have https, the http endpoint will redirect to the https it and the health check will fail of the redirect
             if (configuration["Kestrel:EndPoints:Https:Url"] == null && configuration["Kestrel:EndPoints:Http:Url"] != null)
             {
+                var serviceBaseUrl = Environment.GetEnvironmentVariable("RUNNING_SERVICE_URL") ?? configuration["Kestrel:EndPoints:Http:Url"];
                 healthChecks.AddUrlGroup(
                     new Uri(
-                        $"{configuration["Kestrel:EndPoints:Http:Url"].Replace("*", "localhost")}/swagger/{configuration["Service:Version"]}/swagger.json"),
+                        $"{serviceBaseUrl.Replace("*", "localhost")}/swagger/{configuration["Service:Version"]}/swagger.json"),
                     name: "Get swagger.json",
                     tags: new[] {HealthCheckTag.SANITY});
             }
