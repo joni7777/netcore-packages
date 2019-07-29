@@ -32,7 +32,7 @@ namespace Bp.HealthChecks
                 var serviceBaseUrl = Environment.GetEnvironmentVariable("RUNNING_SERVICE_URL") ?? configuration["Kestrel:EndPoints:Http:Url"];
                 healthChecks.AddUrlGroup(
                     new Uri(
-                        $"{serviceBaseUrl.Replace("*", "localhost")}/swagger/{configuration["Service:Version"]}/swagger.json"),
+                        $"{serviceBaseUrl.Replace("*", "localhost")}/api/swagger/{configuration["Service:Version"]}/swagger.json"),
                     name: "Get swagger.json",
                     tags: new[] {HealthCheckTag.SANITY});
             }
